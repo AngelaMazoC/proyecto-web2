@@ -1,0 +1,62 @@
+.Navbar__Content {
+  background-color: #141414;
+}
+
+.Navabar__Logo {
+  text-align: center;
+  letter-spacing: 6px;
+  font-size: 35px;
+  color: #000;
+  padding: 0px 0 15px 0;
+  font-family: "Bebas Neue", cursive;
+  color: #f5f5f5;
+  border-bottom: 1px solid #787878;
+}
+
+.Navabar__Logo > span {
+  padding-top: 15px;
+  display: block;
+}
+
+.Navbar {
+  position: fixed;
+  width: 100%;
+  height: 55px;
+}
+
+.Navbar__Items {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Navbar__Items > li {
+  margin-right: 30px;
+  color: #f5f5f5;
+  font-family: "Montserrat";
+  font-size: 18px;
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.Navbar__Cart {
+  position: absolute;
+  right: 30px;
+}
+
+.Navbar__Cart > i {
+  color: #f5f5f5;
+}
+
+.Item {
+  text-align: center;
+  margin: 40px;
+  font-size: 40px;
+  font-family: "Montserrat";
+}
