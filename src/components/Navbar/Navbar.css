@@ -9,13 +9,17 @@
   color: #000;
   padding: 0px 0 15px 0;
   font-family: "Bebas Neue", cursive;
-  color: #f5f5f5;
   border-bottom: 1px solid #787878;
 }
 
-.Navabar__Logo > span {
+.Navabar__Logo > a {
+  text-decoration: none;
+}
+
+.Navabar__Logo > a > span {
   padding-top: 15px;
   display: block;
+  color: #f5f5f5;
 }
 
 .Navbar {
@@ -32,7 +36,11 @@
   cursor: pointer;
 }
 
-.Navbar__Items > li {
+.Navbar__Items > .Navbar__Link > a {
+  text-decoration: none;
+}
+
+.Navbar__Items > .Navbar__Link > a {
   margin-right: 30px;
   color: #f5f5f5;
   font-family: "Montserrat";
@@ -52,11 +60,4 @@
 
 .Navbar__Cart > i {
   color: #f5f5f5;
-}
-
-.Item {
-  text-align: center;
-  margin: 40px;
-  font-size: 40px;
-  font-family: "Montserrat";
 }
