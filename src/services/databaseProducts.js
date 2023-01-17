@@ -106,7 +106,7 @@ const databaseItems = [
     marca: "LENOVO",
     stock: 3,
     name: "Lenovo - Legion 5 - Laptop para juegos ",
-    price: 55614010,
+    price: 5614010,
     imgurl: "https://m.media-amazon.com/images/I/81PbOX7ZtaL._AC_SX679_.jpg",
     detail:
       "Lenovo - Legion 5 - Laptop para juegos - AMD Ryzen 7 5800H - 16 GB de RAM - 512 GB de almacenamiento - NVIDIA GeForce RTX 3050Ti - Pantalla FHD de 15.6 pulgadas - Windows 11 Home",
@@ -182,6 +182,19 @@ export function getItemsByCategory(categoryid) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(itemsCat);
+    }, 200);
+  });
+}
+
+export function getSingleItem(itemId) {
+  let itemDetail = databaseItems.find((item) => {
+    return item.id === parseInt(itemId);
+  })
+
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (itemDetail !== undefined) resolve(itemDetail);
+      else reject("Item no encontrado en la base de datos.");
     }, 200);
   });
 }

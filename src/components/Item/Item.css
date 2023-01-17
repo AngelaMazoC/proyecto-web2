@@ -40,6 +40,11 @@
   font-size: 18px;
 }
 
+.Item__Card--Detail a {
+  text-decoration: none;
+  color: black;
+}
+
 .Item__Card--Name {
   display: block;
   margin-top: 20px;

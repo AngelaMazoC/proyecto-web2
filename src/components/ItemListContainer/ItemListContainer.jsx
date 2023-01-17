@@ -5,10 +5,10 @@ import getItems, { getItemsByCategory } from "../../services/databaseProducts";
 
 function ItemListContainer() {
   const [products, setProducts] = useState();
-  const idCategory = useParams();
+  let { categoryid } = useParams();
 
   async function getProducts() {
-    if (Object.entries(idCategory).length === 0) {
+    if (!categoryid) {
       try {
         let response = await getItems();
         setProducts(response);
@@ -16,13 +16,13 @@ function ItemListContainer() {
         alert(error);
       }
     } else {
-      let response = await getItemsByCategory(idCategory.categoryid);
+      let response = await getItemsByCategory(categoryid);
       setProducts(response);
     }
   }
   useEffect(() => {
     getProducts();
-  }, [idCategory]);
+  }, [categoryid]);
 
   return (
     <section className="Item__Content">
