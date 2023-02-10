@@ -19,7 +19,7 @@ const databaseItems = [
     price: 2392560,
     imgurl: "https://m.media-amazon.com/images/I/81m8ydoV6SL._AC_SX679_.jpg",
     detail:
-      "ASUS TUF Gaming NVIDIA GeForce RTX 3060 V2 OC Edition Tarjeta gráfica (PCIe 4.0, 12GB GDDR6, HDMI 2.1, DisplayPort 1.4a,",
+      "ASUS TUF Gaming NVIDIA GeForce RTX 3060 V2 OC Edition Tarjeta gráfica (PCIe 4.0, 12GB GDDR6, HDMI 2.1, DisplayPort 1.4a",
   },
   {
     id: 3,

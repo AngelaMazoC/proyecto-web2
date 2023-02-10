@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import getLinks from "../../services/databaseLinks";
 import "./Navbar.css";
+import { cartContext } from "../../context/cartContext";
 
 function Navbar() {
   const [links, setLinks] = useState([]);
+
+  const { getTotalItems } = useContext(cartContext);
 
   useEffect(() => {
     getLinks().then((respuesta) => {
@@ -38,6 +41,9 @@ function Navbar() {
           </ul>
           <div className="Navbar__Cart">
             <i className="fa-solid fa-cart-shopping" />
+            <div className="Navbar__Cart--count">
+              {getTotalItems()}
+            </div>
           </div>
         </nav>
       </div >
