@@ -25,28 +25,22 @@ function Navbar() {
         <nav className="Navbar">
           <ul className="Navbar__Items">
             <li className="Navbar__Link">
-              <Link to={"/"}>
-                Inicio
-              </Link>
+              <Link to={"/"}>Inicio</Link>
             </li>
-            {
-              links?.map((link) => (
-                <li className="Navbar__Link" key={link.id}>
-                  <Link to={link.url}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))
-            }
+            {links?.map((link) => (
+              <li className="Navbar__Link" key={link.id}>
+                <Link to={link.url}>{link.name}</Link>
+              </li>
+            ))}
           </ul>
           <div className="Navbar__Cart">
-            <i className="fa-solid fa-cart-shopping" />
-            <div className="Navbar__Cart--count">
-              {getTotalItems()}
-            </div>
+            <Link to={"/cart"}>
+              <i className="fa-solid fa-cart-shopping" />
+              <div className="Navbar__Cart--count">{getTotalItems()}</div>
+            </Link>
           </div>
         </nav>
-      </div >
+      </div>
     </>
   );
 }

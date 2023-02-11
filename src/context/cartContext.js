@@ -26,6 +26,7 @@ export function CartContextProvider(props) {
     cart.forEach((item) => (total += 1));
     return total;
   }
+
   const value = { cart, addItem, getTotalItems };
   return (
     <cartContext.Provider value={value}>{props.children}</cartContext.Provider>

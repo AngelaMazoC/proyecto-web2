@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { getSingleItem } from "../../services/databaseProducts";
 import { Link, useParams } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { cartContext } from "../../context/cartContext";
 
@@ -11,9 +13,15 @@ function ItemDetailContainer() {
   const { addItem, getTotalItems } = useContext(cartContext);
   let { itemId } = useParams();
 
+  const notify = () =>
+    toast.success(`Has agregado ${product.name} al carrito`, {
+      position: toast.POSITION.TOP_RIGHT,
+    });
+
   function handleAddToCart(count) {
     const newProduct = { ...product };
     setProduct({ ...newProduct, count: count });
+    notify();
   }
 
   const onValidateStock = (quantityToAdd) => {
@@ -53,11 +61,8 @@ function ItemDetailContainer() {
           onAddToCart={handleAddToCart}
           onValidateStock={onValidateStock}
         />
-        <Link to={"/cart"}>
-          <button className="Cart__GoCart">IR AL CARRITO</button>
-        </Link>
       </div>
-      {/* toastcontainer */}
+      <ToastContainer autoClose={2000} />;
     </div>
   );
 }
