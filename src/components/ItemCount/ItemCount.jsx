@@ -13,7 +13,6 @@ function ItemCount({ onAddToCart, onValidateStock }) {
   };
 
   const handleAdd = () => {
-    console.log(onValidateStock(count));
     if (onValidateStock(count)) {
       setCount(count + 1);
     }

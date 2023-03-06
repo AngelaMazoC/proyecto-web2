@@ -3,11 +3,10 @@ import "./Item.css";
 import { Link } from "react-router-dom";
 
 function Item({ id, name, price, imgurl }) {
-
-  const urlDetail = `/item/${id}`
+  const urlDetail = `/item/${id}`;
 
   return (
-    <div className="Item" >
+    <div className="Item">
       <Link to={urlDetail}>
         <div className="Item__Card--Img">
           <img src={imgurl} alt="Pc" />
@@ -17,9 +16,11 @@ function Item({ id, name, price, imgurl }) {
         <Link to={urlDetail}>
           <span className="Item__Card--Name">{name}</span>
         </Link>
-        <span className="Item__Card--Price">${new Intl.NumberFormat().format(price)}</span>
+        <span className="Item__Card--Price">
+          ${new Intl.NumberFormat().format(price)}
+        </span>
       </div>
-    </ div>
+    </div>
   );
 }
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import getItems, { getItemsByCategory } from "../../services/databaseProducts";
+import { getItems, getItemsByCategory } from "../../services/firebase";
 
 function ItemListContainer() {
   const [products, setProducts] = useState();
   let { categoryid } = useParams();
+  console.log(categoryid);
 
   async function getProducts() {
     if (!categoryid) {
