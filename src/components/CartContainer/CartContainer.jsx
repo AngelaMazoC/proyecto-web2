@@ -5,7 +5,7 @@ import "./CartContainer.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function CartContainer() {
-  const { cart } = useContext(cartContext);
+  const { cart, setCart, onDelete } = useContext(cartContext);
   const navigateTo = useNavigate();
 
   const totalPurchased = () => {
@@ -17,7 +17,7 @@ function CartContainer() {
   };
 
   const completePurchase = () => {
-    cart.splice(0, cart.length);
+    setCart([]);
     alert("gracias por tu compra");
     navigateTo("/");
   };
@@ -33,6 +33,7 @@ function CartContainer() {
                 <th className="col price">Precio</th>
                 <th className="col qty">Cantidad</th>
                 <th className="col total">Total</th>
+                <th className="col total">Accion</th>
               </tr>
             </thead>
             <tbody className="Cart__Table--content">
@@ -63,6 +64,9 @@ function CartContainer() {
                   </td>
                   <td className="cont total">
                     ${new Intl.NumberFormat().format(item.price * item.count)}
+                  </td>
+                  <td className="cont delete" onClick={() => onDelete(item)}>
+                    Eliminar
                   </td>
                 </tr>
               ))}

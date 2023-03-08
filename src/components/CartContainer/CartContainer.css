@@ -103,6 +103,7 @@
     vertical-align: top;
     text-align: center;
     padding: 30px 0;
+    cursor: pointer;
 }
 
 .Cart__Table--content-value > .info {

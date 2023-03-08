@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const cartContext = createContext();
 
 export function CartContextProvider(props) {
-  let [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
   function addItem(item) {
     const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
@@ -27,7 +27,14 @@ export function CartContextProvider(props) {
     return total;
   }
 
-  const value = { cart, addItem, getTotalItems };
+  //eliminar items del carrito 
+  const onDelete = (product) => {
+    const newCart = [...cart]
+    const deleteCart = newCart.filter((item) => item.id !== product.id);
+    setCart(deleteCart)
+  }
+
+  const value = { cart, setCart, addItem, getTotalItems, onDelete };
   return (
     <cartContext.Provider value={value}>{props.children}</cartContext.Provider>
   );

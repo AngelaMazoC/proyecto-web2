@@ -1,7 +1,18 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc, getDocs, doc, getDoc, query, where, setDoc, deleteDoc, orderBy, limit } from "firebase/firestore";
-import { getAuth } from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
+import {
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    doc,
+    getDoc,
+    query,
+    where,
+    setDoc,
+    deleteDoc,
+    orderBy,
+    limit
+} from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_APIKEY,
@@ -14,9 +25,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-const auth = getAuth(app)
 const db = getFirestore(app);
-const storage = getStorage(app)
 
 //obtiene todos los productos
 export async function getItems() {
@@ -26,6 +35,7 @@ export async function getItems() {
         orderBy("price"),
         limit(100)
     );
+
     const querySnapshot = await getDocs(q);
     const dataDocs = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -38,8 +48,6 @@ export async function getItems() {
 export async function getSingleItem(itemid) {
     const docRef = doc(db, "products", itemid);
     const snapshot = await getDoc(docRef);
-
-    //return  {...snapshot.data(), id: snapshot.id};
     const docData = snapshot.data();
     docData.id = snapshot.id;
     return docData;
@@ -54,10 +62,10 @@ export async function getItemsByCategory(categoryid) {
         ...doc.data(),
         id: doc.id,
     }));
-
     return dataDocs
 }
 
+// Agrgar items a firebase
 export async function exportData() {
     const productsCollectionRef = collection(db, "products");
     const products = [
