@@ -1,0 +1,79 @@
+.Navbar__Content {
+  background-color: #141414;
+}
+
+.Navabar__Logo {
+  text-align: center;
+  letter-spacing: 6px;
+  font-size: 35px;
+  color: #000;
+  padding: 0px 0 15px 0;
+  font-family: "Bebas Neue", cursive;
+  border-bottom: 1px solid #787878;
+}
+
+.Navabar__Logo > a {
+  text-decoration: none;
+}
+
+.Navabar__Logo > a > span {
+  padding-top: 15px;
+  display: block;
+  color: #f5f5f5;
+}
+
+.Navbar {
+  position: fixed;
+  width: 100%;
+  height: 55px;
+}
+
+.Navbar__Items {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.Navbar__Items > .Navbar__Link > a {
+  text-decoration: none;
+}
+
+.Navbar__Items > .Navbar__Link > a {
+  margin-right: 30px;
+  color: #f5f5f5;
+  font-family: "Montserrat";
+  font-size: 18px;
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.Navbar__Cart {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 70px;
+  cursor: pointer;
+}
+
+.Navbar__Cart a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #f5f5f5;
+}
+
+.Navbar__Cart > i {
+  color: #f5f5f5;
+}
+
+.Navbar__Cart--count {
+  margin-left: 5px;
+  color: #f5f5f5;
+  font-family: "oswald";
+}

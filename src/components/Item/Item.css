@@ -1,0 +1,54 @@
+.Item__Card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 350px));
+  column-gap: 20px;
+  row-gap: 60px;
+  margin-top: 40px;
+  place-content: center;
+  padding: 40px;
+}
+
+.Item__Card--Img {
+  max-width: 450px;
+  height: 80%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Item__Card--Img > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.Item {
+  max-height: 381px;
+}
+
+.Item__Card--Detail {
+  display: flex;
+  flex-direction: column;
+  height: 20%;
+}
+
+.Item__Card--Price {
+  display: block;
+  margin-top: 10px;
+  font-family: "Oswald";
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.Item__Card--Detail a {
+  text-decoration: none;
+  color: black;
+}
+
+.Item__Card--Name {
+  display: block;
+  margin-top: 20px;
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-size: 16px;
+}

@@ -1,0 +1,40 @@
+.Detail__Content {
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 70px auto;
+}
+.Detail__Item--img {
+    width: 50%;
+    text-align: center;
+}
+.Detail__Item--img > img {
+    width: 470px;
+    height: 517px;
+}
+
+.Detail__Item--info {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.Detail__Item--Marca {
+    color: #b4b4b4;
+    font-family: "Montserrat";
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.Detail__Item--Name {
+    font-family: "Montserrat";
+    color: #000;
+    font-weight: 600;
+    font-size: 19px;
+    margin-bottom: 50px;
+}
+
+.Detail__Item--Price {
+    font-family: "Oswald";
+    font-size: 25px;
+}
