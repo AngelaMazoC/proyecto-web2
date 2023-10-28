@@ -83,8 +83,13 @@
   right: 192px;
 }
 
-.LoginContent .Register {
+.LoginContent .Register,
+.LoginContent .Login{
   position: absolute;
   top: 39px;
   right: -86px;
+}
+
+.LoginContent .Login{
+  right: 200px;
 }

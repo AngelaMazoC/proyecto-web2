@@ -1,13 +1,16 @@
 import React, { useState } from 'react'
 import { useAuthContext } from '../../context/AuthContext';
 
-const Authentication = () => {
+const UserRegister = () => {
   const {
     register
   } = useAuthContext();
 
   const [emailRegister, setEmailRegister] = useState("");
   const [passwordlRegister, setPasswordRegister] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [passwordl, setPassword] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -59,4 +62,4 @@ const Authentication = () => {
   )
 }
 
-export default Authentication
+export default UserRegister
