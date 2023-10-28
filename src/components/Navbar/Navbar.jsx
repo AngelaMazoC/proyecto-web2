@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import getLinks from "../../services/databaseLinks";
 import "./Navbar.css";
 import { cartContext } from "../../context/cartContext";
+import Register from "../FormLogin/Register";
 
 function Navbar() {
   const [links, setLinks] = useState([]);
@@ -39,6 +40,10 @@ function Navbar() {
               <i className="fa-solid fa-cart-shopping" />
               <div className="Navbar__Cart--count">{getTotalItems()}</div>
             </Link>
+          </div>
+          <div className="LoginContent">
+            <div>🧑</div>
+            <Register />
           </div>
         </nav>
       </div>

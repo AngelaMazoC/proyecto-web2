@@ -77,3 +77,14 @@
   color: #f5f5f5;
   font-family: "oswald";
 }
+
+.Navbar .LoginContent {
+  position: relative;
+  right: 192px;
+}
+
+.LoginContent .Register {
+  position: absolute;
+  top: 39px;
+  right: -86px;
+}

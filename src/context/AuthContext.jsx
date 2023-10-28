@@ -1,6 +1,6 @@
 import { auth } from "../services/firebase";
 import { createContext, useContext } from "react";
-import { createUserWithEmailAndPassword , signInWithEmailAndPassword , singOut} from "firebase/auth";
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword , signOut} from "firebase/auth";
 
 export const authContext = createContext()
 
@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
   }
 
   const logout = async () => {
-    const response = await singOut(auth);
+    const response = await signOut(auth);
     console.log(response);
   }
 
