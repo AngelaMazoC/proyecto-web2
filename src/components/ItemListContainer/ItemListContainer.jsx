@@ -6,7 +6,6 @@ import { getItems, getItemsByCategory } from "../../services/firebase";
 function ItemListContainer() {
   const [products, setProducts] = useState();
   let { categoryid } = useParams();
-  console.log(categoryid);
 
   async function getProducts() {
     if (!categoryid) {

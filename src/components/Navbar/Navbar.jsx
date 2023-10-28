@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import getLinks from "../../services/databaseLinks";
 import "./Navbar.css";
 import { cartContext } from "../../context/cartContext";
-import Register from "../FormLogin/Register";
+import Authentication from "../FormLogin/Authentication";
 
 function Navbar() {
   const [links, setLinks] = useState([]);
@@ -43,7 +43,7 @@ function Navbar() {
           </div>
           <div className="LoginContent">
             <div>🧑</div>
-            <Register />
+            <Authentication />
           </div>
         </nav>
       </div>

@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
-import { useAuth } from '../../context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext';
 
-const Register = () => {
-  const auth = useAuth()
+const Authentication = () => {
+  const {
+    register
+  } = useAuthContext();
+
   const [emailRegister, setEmailRegister] = useState("");
   const [passwordlRegister, setPasswordRegister] = useState("");
-  const handleRegister = () => {
-    e.preventDefault()
-    auth.register(emailRegister, passwordlRegister)
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    register(emailRegister, passwordlRegister);  
   }
+
   return (
     <div className="Register">
       <form className="form">
@@ -54,4 +59,4 @@ const Register = () => {
   )
 }
 
-export default Register
+export default Authentication
