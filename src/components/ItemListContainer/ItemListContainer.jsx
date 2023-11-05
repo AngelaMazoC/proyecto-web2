@@ -20,6 +20,7 @@ function ItemListContainer() {
       setProducts(response);
     }
   }
+
   useEffect(() => {
     getProducts();
   }, [categoryid]);

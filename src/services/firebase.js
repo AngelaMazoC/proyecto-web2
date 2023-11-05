@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import {getAuth} from "firebase/auth"
+import { getAuth } from "firebase/auth"
 import {
     getFirestore,
     collection,
@@ -14,22 +14,21 @@ import {
     orderBy,
     limit
 } from "firebase/firestore";
+import { useEffect } from "react";
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyBJlHsWTJVI0SOKLJ10ziCstA-J_cls9KI',
-    authDomain: 'proyecto-coder-a06b7.firebaseapp.com',
-    projectId: 'proyecto-coder-a06b7',
-    storageBucket: 'proyecto-coder-a06b7.appspot.com',
-    messagingSenderId: '229618884376',
-    appId: '1:229618884376:web:1354b4fe1e2640480d486d'
+    apiKey: "AIzaSyB_ULCsfO3HQ60T9ZFvG2z0bl0Eyhm3eII",
+    authDomain: "proyecto-web2-10906.firebaseapp.com",
+    projectId: "proyecto-web2-10906",
+    storageBucket: "proyecto-web2-10906.appspot.com",
+    messagingSenderId: "597735482640",
+    appId: "1:597735482640:web:f169449d7b6c738c773195"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 const db = getFirestore(app);
-
-
 
 //obtiene todos los productos
 export async function getItems() {
@@ -69,7 +68,7 @@ export async function getItemsByCategory(categoryid) {
     return dataDocs
 }
 
-// Agrgar items a firebase
+// Agregar esta funcion en el useEffect de itemListContainer solo la primera vez para crear los productos en la bd
 export async function exportData() {
     const productsCollectionRef = collection(db, "products");
     const products = [
