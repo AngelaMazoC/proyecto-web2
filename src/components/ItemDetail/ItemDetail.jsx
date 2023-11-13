@@ -41,7 +41,7 @@ export const ItemDetail = ({ product, handleAddToCart, setProduct }) => {
           onAddToCart={handleAddToCart}
           onValidateStock={onValidateStock}
         />
-        <ToastContainer autoClose={2000} />;
+        <ToastContainer autoClose={2000} />
       </div>
     </div>
   );

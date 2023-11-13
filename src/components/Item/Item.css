@@ -1,7 +1,7 @@
 .Item__Card {
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 350px));
-  column-gap: 20px;
+  grid-template-columns: repeat(3, minmax(200px, 350px));
+  column-gap: 60px;
   row-gap: 60px;
   margin-top: 40px;
   place-content: center;
@@ -29,15 +29,17 @@
 .Item__Card--Detail {
   display: flex;
   flex-direction: column;
-  height: 20%;
+  height: 100%;
 }
 
 .Item__Card--Price {
   display: block;
-  margin-top: 10px;
-  font-family: "Oswald";
+  margin-top: 55px;
+  font-family: 'Segoe UI';
   font-weight: bold;
   font-size: 18px;
+  color: #202020;
+  position: absolute;
 }
 
 .Item__Card--Detail a {
@@ -47,8 +49,9 @@
 
 .Item__Card--Name {
   display: block;
-  margin-top: 20px;
-  font-family: "Montserrat";
-  font-weight: bold;
-  font-size: 16px;
+  margin-top: 9px;
+  font-family: 'Segoe UI';
+  font-weight: 700;
+  font-size: 17px;
+  color: #484848;
 }

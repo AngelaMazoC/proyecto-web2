@@ -7,7 +7,7 @@
 .Item__Count--btn {
     width: 25px;
     height: 25px;
-    font-family: "Montserrat";
+    font-family: 'Segoe UI';
     background-color: #000;
     color: #f5f5f5;
     cursor: pointer;
@@ -27,7 +27,7 @@
 
 .Item__Count--cant {
     font-size: 14px;
-    font-family: "oswald";
+    font-family: 'Segoe UI';
     margin-bottom: 3px;
 }
 

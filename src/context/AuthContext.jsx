@@ -4,7 +4,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { auth } from "../services/firebase";
 
 import {GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut} from "firebase/auth";
-import { toast } from "react-toastify";
 
 export const authContext = createContext(null);
 

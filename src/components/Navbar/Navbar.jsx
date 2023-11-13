@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useAuthContext } from '../../context/AuthContext';
+import { useAuthContext } from '../../context/AuthContext'; 
 import { cartContext } from "../../context/cartContext";
 
 import { Link } from "react-router-dom";
@@ -12,8 +12,6 @@ import "./Navbar.css";
 function Navbar() {
   const [links, setLinks] = useState([]);
   const { getTotalItems } = useContext(cartContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
 
   const {
     loginWithGoogle,
@@ -44,7 +42,7 @@ function Navbar() {
       <div className="Navbar__Content">
         <div className="Navabar__Logo">
           <Link to={"/"}>
-            <span>MYGADGETSTORE</span>
+            <span>TECH NEST</span>
           </Link>
         </div>
         <nav className="Navbar">

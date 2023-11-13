@@ -25,14 +25,14 @@
 
 .Cart__Total--title {
     font-size: 19px;
-    font-family: "montserrat";
+    font-family: 'Segoe UI';
     text-align: center;
     padding: 10px 0;
     margin-bottom: 30px;
 }
 
 .Total__Container span:first-child {
-    font-family: "montserrat";
+    font-family: 'Segoe UI';
     font-weight: bold;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -40,7 +40,7 @@
 
 .Total__Container span:last-child {
     margin: auto 0;
-    font-family: "oswald";
+    font-family: 'Segoe UI';
 }
 
 .Total__Container-total {
@@ -75,7 +75,7 @@
 }
 
 .Cart__Title--values > .col {
-    font-family: "oswald";
+    font-family: 'Segoe UI';
     font-size: 20px;
     text-align: initial;
     border-bottom: 1px solid #b4b4b4;
@@ -104,6 +104,7 @@
     text-align: center;
     padding: 30px 0;
     cursor: pointer;
+    font-family: 'Segoe UI';
 }
 
 .Cart__Table--content-value > .info {
@@ -120,7 +121,7 @@
 .Cart__Table--content-value > .price,
 .qty,
 .total {
-    font-family: "oswald";
+    font-family: 'Segoe UI';
 }
 
 .Cart__Table--content-value > .qty span {
@@ -131,26 +132,32 @@
 }
 
 .product-info-name {
-    font-family: "montserrat";
+    font-family: 'Segoe UI';
     font-size: 17px;
     font-weight: bold;
 }
 
 .product-info--id > strong {
-    font-family: "oswald";
+    font-family: 'Segoe UI';
     font-size: 14px;
     color: #6e6d6d;
 }
 
 .product-info--id {
-    font-family: "montserrat";
+    font-family: 'Segoe UI';
     font-size: 14px;
 }
 
 .Cart__Empty {
     display: block;
     text-align: center;
-    font-family: "montserrat";
+    font-family: 'Segoe UI';
     font-size: 35px;
+    font-weight: bold;
+}
+
+.Finalize__Purchase{
+    font-family: 'Segoe UI'; 
+    font-size: 16px;
     font-weight: bold;
 }
