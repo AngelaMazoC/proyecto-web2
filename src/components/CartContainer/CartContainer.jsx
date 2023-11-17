@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
+import { useAuthContext } from "../../context/AuthContext";
+import { savePurchase } from "../../services/firebase";
 
 import "./CartContainer.css";
 import { Link, useNavigate } from "react-router-dom";
 
 function CartContainer() {
   const { cart, setCart, onDelete } = useContext(cartContext);
+  const { user } = useAuthContext();
   const navigateTo = useNavigate();
 
   const totalPurchased = () => {
@@ -16,10 +19,17 @@ function CartContainer() {
     return result;
   };
 
-  const completePurchase = () => {
-    setCart([]);
-    alert("gracias por tu compra");
-    navigateTo("/");
+  const completePurchase = async () => {
+    if (user) {
+      // Solo intenta guardar la compra si el usuario está autenticado
+      await savePurchase(user.uid, cart);
+      setCart([]);
+      alert("Gracias por tu compra");
+      navigateTo("/");
+    } else {
+      // Muestra alerta si el usuario no está autenticado
+      alert("Debes iniciar sesión antes de completar la compra.");
+    }
   };
 
   if (cart.length !== 0) {
@@ -74,7 +84,7 @@ function CartContainer() {
           </table>
           <div className="Cart__Total">
             <div className="Cart__Total--container">
-              <h1 className="Cart__Total--title">RESUMEN DE LA COMPRA</h1>
+              <h1 className="Cart__Total--title">RESUMEN DE COMPRA</h1>
               <div className="Total__Container">
                 <span>Subtotal</span>
                 <span className="Total__Container-sub">

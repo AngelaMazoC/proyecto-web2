@@ -29,6 +29,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 const db = getFirestore(app);
+const purchasesCollectionRef = collection(db, "purchases");
 
 //obtiene todos los productos
 export async function getItems() {
@@ -247,4 +248,22 @@ export async function exportData() {
             console.log("Documento creado:", res.id)
         );
     }
+}
+
+// Función para guardar una compra en la base de datos
+export async function savePurchase(userUid, cart) {
+    const purchaseData = {
+        userId: userUid,
+        items: cart.map((item) => ({
+            productId: item.id,
+            name: item.name,
+            quantity: item.count,
+            totalPrice: item.price * item.count,
+        })),
+        timestamp: new Date(),
+    };
+
+    // Agregar la compra a la colección "purchases"
+    const docRef = await addDoc(purchasesCollectionRef, purchaseData);
+    console.log("Compra guardada con ID:", docRef.id);
 }
