@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useAuthContext } from '../../context/AuthContext'; 
+import { useAuthContext } from '../../context/AuthContext';
 import { cartContext } from "../../context/cartContext";
 
 import { Link } from "react-router-dom";
@@ -11,6 +11,7 @@ import "./Navbar.css";
 
 function Navbar() {
   const [links, setLinks] = useState([]);
+  const [showBoxLogin, setShowBoxLogin] = useState(false);
   const { getTotalItems } = useContext(cartContext);
 
   const {
@@ -23,10 +24,12 @@ function Navbar() {
 
   const handleLogin = () => {
     loginWithGoogle();
+    setShowBoxLogin(false);
   }
 
   const sesionClose = () => {
     logout();
+    setShowBoxLogin(false);
     toast("Has cerrado sesión");
 
   }
@@ -36,6 +39,7 @@ function Navbar() {
       setLinks(respuesta);
     });
   }, []);
+
 
   return (
     <>
@@ -56,14 +60,27 @@ function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="LoginContent">
+          <div className="LoginContent" >
             {
               user === ''
                 ?
-                <i className="fa-solid fa-user" onClick={handleLogin} />
+                <i className="fa-solid fa-user" onClick={() => setShowBoxLogin(!showBoxLogin)} />
                 :
-                <span onClick={sesionClose}>{`Hola ${nombre[0]}`}</span>
+                <span onClick={() => setShowBoxLogin(!showBoxLogin)}>{`Hola ${nombre[0]}`}</span>
             }
+
+            <div className="BoxLogin" data-show={showBoxLogin}>
+              {
+                user ?
+                  <div className="BoxIsLogin">
+                    <Link to={"/myorders"} className="Orders">Mis compras</Link>
+                    <span className="SesionClose" onClick={sesionClose}>Cerrar sesión</span>
+                  </div>
+                  :
+                  <span className="buttonLogin" onClick={handleLogin}>Iniciar Sesion</span>
+              }
+            </div>
+
           </div>
           <div className="Navbar__Cart">
             <Link to={"/cart"}>
@@ -73,7 +90,7 @@ function Navbar() {
           </div>
         </nav>
       </div>
-      <ToastContainer autoClose={2000} />;
+      <ToastContainer autoClose={2000} />
     </>
   );
 }

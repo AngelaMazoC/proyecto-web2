@@ -1,0 +1,20 @@
+.OrdersContent {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.OrdersUser {
+  margin: 30px 0 30px 0;
+}
+
+.OrderItems {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Items {
+  background: aquamarine;
+  height: 145px;
+  border-radius: 10px;
+}

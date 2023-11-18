@@ -4,7 +4,7 @@ import ItemList from "../ItemList/ItemList";
 import { getItems, getItemsByCategory } from "../../services/firebase";
 
 function ItemListContainer() {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   let { categoryid } = useParams();
 
   async function getProducts() {
@@ -24,6 +24,7 @@ function ItemListContainer() {
   useEffect(() => {
     getProducts();
   }, [categoryid]);
+
 
   return (
     <section className="Item__Content">

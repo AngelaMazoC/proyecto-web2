@@ -251,9 +251,11 @@ export async function exportData() {
 }
 
 // Función para guardar una compra en la base de datos
-export async function savePurchase(userUid, cart) {
+export async function savePurchase(user, cart, address, phone) {
     const purchaseData = {
-        userId: userUid,
+        userId: user.uid,
+        userName: user.displayName,
+        userEmail: user.email,
         items: cart.map((item) => ({
             productId: item.id,
             name: item.name,
@@ -261,9 +263,23 @@ export async function savePurchase(userUid, cart) {
             totalPrice: item.price * item.count,
         })),
         timestamp: new Date(),
+        userAddress: address,
+        userPhone: phone,        
     };
 
     // Agregar la compra a la colección "purchases"
     const docRef = await addDoc(purchasesCollectionRef, purchaseData);
     console.log("Compra guardada con ID:", docRef.id);
+}
+
+export async function getOrdersByUserId(UserId) {
+    const purchasesCollectionRef = collection(db, "purchases");
+    const q = query(purchasesCollectionRef, where("userId", "==", UserId));
+    const querySnapshot = await getDocs(q);
+    const dataDocs = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+    }));
+    
+    return dataDocs
 }

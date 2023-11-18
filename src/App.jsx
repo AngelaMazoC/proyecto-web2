@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import CartContainer from "./components/CartContainer/CartContainer";
+import Orders from "./components/Orders/Orders";
 
 function App() {
   return (
@@ -19,8 +20,9 @@ function App() {
             <Route path="/:categoryid" element={<ItemListContainer />} />
             <Route path="/item/:itemId" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartContainer />} />
+            <Route path="/myorders" element={<Orders />} />
           </Routes>
-        </BrowserRouter>
+        </BrowserRouter>  
       </CartContextProvider>
     </AuthProvider>
   );

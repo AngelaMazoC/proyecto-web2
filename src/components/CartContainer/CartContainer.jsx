@@ -1,12 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { cartContext } from "../../context/cartContext";
 import { useAuthContext } from "../../context/AuthContext";
 import { savePurchase } from "../../services/firebase";
 
 import "./CartContainer.css";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function CartContainer() {
+
+  const [showForm, setShowForm] = useState(false);
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+
   const { cart, setCart, onDelete } = useContext(cartContext);
   const { user } = useAuthContext();
   const navigateTo = useNavigate();
@@ -22,13 +28,18 @@ function CartContainer() {
   const completePurchase = async () => {
     if (user) {
       // Solo intenta guardar la compra si el usuario está autenticado
-      await savePurchase(user.uid, cart);
+      if (phone === '' || address === '') {
+        toast("Debes llenar to  dos los campos");
+        return;
+      }
+
+      await savePurchase(user, cart, address, phone);
       setCart([]);
-      alert("Gracias por tu compra");
+      toast("Gracias por tu compra");
       navigateTo("/");
     } else {
       // Muestra alerta si el usuario no está autenticado
-      alert("Debes iniciar sesión antes de completar la compra.");
+      toast("Debes iniciar sesión antes de completar la compra.");
     }
   };
 
@@ -36,52 +47,70 @@ function CartContainer() {
     return (
       <div className="Cart">
         <div className="Cart__Container">
-          <table className="Cart__Table">
-            <thead className="Cart__Title">
-              <tr className="Cart__Title--values">
-                <th className="col item">Productos</th>
-                <th className="col price">Precio</th>
-                <th className="col qty">Cantidad</th>
-                <th className="col total">Total</th>
-                <th className="col total">Accion</th>
-              </tr>
-            </thead>
-            <tbody className="Cart__Table--content">
-              {cart?.map((item) => (
-                <tr className="Cart__Table--content-value" key={item.id}>
-                  <td className="cont info">
-                    <Link to={`/item/${item.id}`}>
-                      <img
-                        src={item.imgurl}
-                        alt="product"
-                        width="75"
-                        height="97"
-                      />
-                    </Link>
-                    <div className="product-info">
-                      <span className="product-info-name">{item.name}</span>
-                      <span className="product-info--id">
-                        <strong>ID: </strong>
-                        {item.id}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="cont price">
-                    ${new Intl.NumberFormat().format(item.price)}
-                  </td>
-                  <td className="cont qty">
-                    <span>{item.count}</span>
-                  </td>
-                  <td className="cont total">
-                    ${new Intl.NumberFormat().format(item.price * item.count)}
-                  </td>
-                  <td className="cont delete" onClick={() => onDelete(item)}>
-                    Eliminar
-                  </td>
+          {!showForm ?
+            <table className="Cart__Table">
+              <thead className="Cart__Title">
+                <tr className="Cart__Title--values">
+                  <th className="col item">Productos</th>
+                  <th className="col price">Precio</th>
+                  <th className="col qty">Cantidad</th>
+                  <th className="col total">Total</th>
+                  <th className="col total">Accion</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="Cart__Table--content">
+                {cart?.map((item) => (
+                  <tr className="Cart__Table--content-value" key={item.id}>
+                    <td className="cont info">
+                      <Link to={`/item/${item.id}`}>
+                        <img
+                          src={item.imgurl}
+                          alt="product"
+                          width="75"
+                          height="97"
+                        />
+                      </Link>
+                      <div className="product-info">
+                        <span className="product-info-name">{item.name}</span>
+                        <span className="product-info--id">
+                          <strong>ID: </strong>
+                          {item.id}
+                        </span>
+                      </div>
+                    </td>
+                    <td className="cont price">
+                      ${new Intl.NumberFormat().format(item.price)}
+                    </td>
+                    <td className="cont qty">
+                      <span>{item.count}</span>
+                    </td>
+                    <td className="cont total">
+                      ${new Intl.NumberFormat().format(item.price * item.count)}
+                    </td>
+                    <td className="cont delete" onClick={() => onDelete(item)}>
+                      Eliminar
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            :
+            <div className="CartForm">
+              <h2 className="CartFormTitle">Información de contacto</h2>
+              <div className="CartFormName">
+                <span>{user.displayName}</span>
+              </div>
+              <div className="CartFormEmail">
+                <span>{user.email}</span>
+              </div>
+              <div className="CartFormPhone">
+                <input type="text" placeholder="Celular" onChange={(e) => setPhone(e.target.value)} />
+              </div>
+              <div className="CartFormAddress">
+                <input type="text" placeholder="Dirección" onChange={(e) => setAddress(e.target.value)} />
+              </div>
+            </div>
+          }
           <div className="Cart__Total">
             <div className="Cart__Total--container">
               <h1 className="Cart__Total--title">RESUMEN DE COMPRA</h1>
@@ -102,9 +131,12 @@ function CartContainer() {
                   ${totalPurchased()}
                 </span>
               </div>
-              <button className="Finalize__Purchase" onClick={completePurchase}>
-                Finalizar compra
-              </button>
+              {
+                !showForm ?
+                  <button className="Finalize__Purchase" onClick={() => setShowForm(true)}>Continuar</button>
+                  :
+                  <button className="Finalize__Purchase" onClick={completePurchase}>Finalizar compra</button>
+              }
             </div>
           </div>
         </div>

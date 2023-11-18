@@ -74,7 +74,7 @@
     height: 400px;
 }
 
-.Cart__Title--values > .col {
+.Cart__Title--values>.col {
     font-family: 'Segoe UI';
     font-size: 20px;
     text-align: initial;
@@ -83,23 +83,23 @@
     text-align: center;
 }
 
-.Cart__Title--values > .item {
+.Cart__Title--values>.item {
     width: 720px;
 }
 
-.Cart__Title--values > .price {
+.Cart__Title--values>.price {
     width: 120px;
 }
 
-.Cart__Title--values > .qty {
+.Cart__Title--values>.qty {
     width: 100px;
 }
 
-.Cart__Title--values > .total {
+.Cart__Title--values>.total {
     width: 140px;
 }
 
-.Cart__Table--content-value > .cont {
+.Cart__Table--content-value>.cont {
     vertical-align: top;
     text-align: center;
     padding: 30px 0;
@@ -107,24 +107,24 @@
     font-family: 'Segoe UI';
 }
 
-.Cart__Table--content-value > .info {
+.Cart__Table--content-value>.info {
     display: flex;
     text-align: start;
 }
 
-.Cart__Table--content-value > .info > .product-info {
+.Cart__Table--content-value>.info>.product-info {
     display: flex;
     flex-direction: column;
     margin-left: 15px;
 }
 
-.Cart__Table--content-value > .price,
+.Cart__Table--content-value>.price,
 .qty,
 .total {
     font-family: 'Segoe UI';
 }
 
-.Cart__Table--content-value > .qty span {
+.Cart__Table--content-value>.qty span {
     display: block;
     border: 1px solid #000;
     width: 50px;
@@ -137,7 +137,7 @@
     font-weight: bold;
 }
 
-.product-info--id > strong {
+.product-info--id>strong {
     font-family: 'Segoe UI';
     font-size: 14px;
     color: #6e6d6d;
@@ -156,8 +156,37 @@
     font-weight: bold;
 }
 
-.Finalize__Purchase{
-    font-family: 'Segoe UI'; 
+.Finalize__Purchase {
+    font-family: 'Segoe UI';
     font-size: 16px;
     font-weight: bold;
+}
+
+.CartForm{
+    width: 70%;
+}
+
+.CartForm div {
+    margin-bottom: 15px;
+    font-family: 'Segoe UI';
+    color: #333;
+}
+
+.CartFormTitle {
+    font-family: 'Segoe UI';
+    margin-bottom: 57px;
+}
+
+.CartForm div input {
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #cbcbcb;
+    padding: 10px;
+}
+
+.CartForm div input:focus {
+    border: 1px solid #cbcbcb;
+    outline: none;
+    box-shadow: 4px 1px 12px 0px rgba(138,136,136,0.84);
 }
