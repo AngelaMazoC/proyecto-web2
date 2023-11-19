@@ -31,7 +31,6 @@ function Navbar() {
     logout();
     setShowBoxLogin(false);
     toast("Has cerrado sesión");
-
   }
 
   useEffect(() => {
@@ -77,7 +76,7 @@ function Navbar() {
                     <span className="SesionClose" onClick={sesionClose}>Cerrar sesión</span>
                   </div>
                   :
-                  <span className="buttonLogin" onClick={handleLogin}>Iniciar Sesion</span>
+                  <span className="buttonLogin" onClick={handleLogin}>Iniciar Sesión</span>
               }
             </div>
 

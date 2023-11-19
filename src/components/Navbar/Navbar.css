@@ -104,25 +104,31 @@
   display: block;
   width: 142px;
   height: 44px;
-  background: #434242;
+  background: #f5f5f5;
   text-align: center;
-  padding: 8px;
-  color: white;
+  padding: 9px;
+  color: #474735;
+  font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: #333;
 }
 
 .BoxLogin[data-show=true] {
   display: flex;
   width: 170px;
-  height: 140px;
+  height: 120px;
   position: absolute;
-  color: black;
+  color: #f5f5f5;
   top: 39px;
-  background: #bebebe;
-  left: -7px;
+  background: rgba(71, 71, 71, 75%);
+  left: -35px;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 19px;
 }
 
 .BoxIsLogin {
@@ -131,18 +137,30 @@
   gap: 10px;
 }
 
-.BoxIsLogin span {
+.BoxIsLogin .Orders {
+  display: block;
+  width: 142px;
+  height: 44px;
+  text-align: center;
+  padding: 9px;
+  color: #ffffff;
   cursor: pointer;
-  font-family: 'Segoe UI';
-  color: #333;
+  text-decoration: none;
 }
 
 .BoxIsLogin .SesionClose{
   display: block;
   width: 142px;
   height: 44px;
-  background: #434242;
+  background: #f5f5f5;
   text-align: center;
-  padding: 8px;
-  color: white;
+  padding: 9px;
+  color: #474735;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  border-width: 2px;
+  border-style: outset;
+  border-color: #333;
 }
