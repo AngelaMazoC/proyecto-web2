@@ -30,6 +30,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 const db = getFirestore(app);
 const purchasesCollectionRef = collection(db, "purchases");
+const ratingCollectionRef = collection(db, "rating");
 
 //obtiene todos los productos
 export async function getItems() {
@@ -261,10 +262,11 @@ export async function savePurchase(user, cart, address, phone) {
             name: item.name,
             quantity: item.count,
             totalPrice: item.price * item.count,
+            productImg: item.imgurl,
         })),
         timestamp: new Date(),
         userAddress: address,
-        userPhone: phone,        
+        userPhone: phone,
     };
 
     // Agregar la compra a la colección "purchases"
@@ -280,6 +282,32 @@ export async function getOrdersByUserId(UserId) {
         ...doc.data(),
         id: doc.id,
     }));
-    
+
     return dataDocs
 }
+
+export async function saveRating(rating, productId, userId) {
+    const ratingData = {
+        userId: userId,
+        productId: productId,
+        rating: rating,
+    };
+
+    // Agregar la compra a la colección "purchases"
+    const docRef = await addDoc(ratingCollectionRef, ratingData);
+    console.log("Calificación guardada con ID:", docRef.id);
+}
+
+export async function getRatingsByUserId(UserId) {
+    const ratingCollectionRef = collection(db, "rating");
+    const q = query(ratingCollectionRef, where("userId", "==", UserId));
+    const querySnapshot = await getDocs(q);
+    const dataDocs = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+    }));
+
+    return dataDocs
+}
+
+

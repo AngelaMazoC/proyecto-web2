@@ -1,10 +1,14 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
+import { getRatingsByUserId, } from '../services/firebase';
+import { useAuthContext } from "./AuthContext";
+
+
 
 export const cartContext = createContext();
 
 export function CartContextProvider(props) {
   const [cart, setCart] = useState([]);
-
+  
   function addItem(item) {
     const isInCart = cart.some((itemInCart) => itemInCart.id === item.id);
     if (isInCart) {
@@ -32,7 +36,7 @@ export function CartContextProvider(props) {
     const newCart = [...cart]
     const deleteCart = newCart.filter((item) => item.id !== product.id);
     setCart(deleteCart)
-  }
+  } 
 
   const value = { cart, setCart, addItem, getTotalItems, onDelete };
   return (

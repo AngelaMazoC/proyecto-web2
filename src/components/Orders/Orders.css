@@ -17,7 +17,36 @@
 }
 
 .Items {
-  background: aquamarine;
+  background: #d9d9d9;
   height: 145px;
   border-radius: 10px;
+  box-shadow: 4px 1px 12px 0px rgba(138, 136, 136, 0.84);
+  font-family: 'Segoe UI';
+  padding: 8px 20px 20px 20px;
+}
+
+.ItemsRating .Star {
+  cursor: pointer;
+}
+
+.Items .ItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+}
+
+.Items .ItemContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Items .ItemContent .ItemsRating {
+  text-align: end;
+}
+
+.Items .ItemDate {
+  margin-bottom: 15px;
+  display: block;
+  font-weight: bold;
 }
